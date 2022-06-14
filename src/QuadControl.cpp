@@ -71,10 +71,11 @@ VehicleCommand QuadControl::GenerateMotorCommands(float collThrustCmd, V3F momen
     float armLength = L;
     float squareRootOfHalf = 0.71;
     float torqueToThrustRatio = kappa;
+    float l = armLength * squareRootOfHalf;
 
     float desiredCollectiveThrust = collThrustCmd;
-    float forceAroundX = momentCmd.x / (armLength * squareRootOfHalf);
-    float forceAroundY = momentCmd.y / (armLength * squareRootOfHalf);
+    float forceAroundX = momentCmd.x / l;
+    float forceAroundY = momentCmd.y / l;
     float forceAroundZ = -momentCmd.z / torqueToThrustRatio;
 
     float desiredThrustMotorOne = (desiredCollectiveThrust + forceAroundX + forceAroundY + forceAroundZ) / 4.f;
@@ -112,19 +113,11 @@ V3F QuadControl::BodyRateControl(V3F pqrCmd, V3F pqr) {
     V3F desiredBodyRates = pqrCmd;
     V3F currentBodyRates = pqr;
     V3F angleRateGains = kpPQR;
-    float momentOfInertiaXx = Ixx;
-    float momentOfInertiaYy = Iyy;
-    float momentOfInertiaZz = Izz;
+    V3F momentsOfInertia = V3F(Ixx, Iyy, Izz);
 
     V3F bodyRatesError = desiredBodyRates - currentBodyRates;
-
-    float rollMoment = bodyRatesError[0] * angleRateGains[0] * momentOfInertiaXx;
-    float pitchMoment = bodyRatesError[1] * angleRateGains[1] * momentOfInertiaYy;
-    float yawMoment = bodyRatesError[2] * angleRateGains[2] * momentOfInertiaZz;
-
-    momentCmd[0] = rollMoment;
-    momentCmd[1] = pitchMoment;
-    momentCmd[2] = yawMoment;
+    V3F desiredMoments = momentsOfInertia * angleRateGains * bodyRatesError;
+    momentCmd = desiredMoments;
 
 
     /////////////////////////////// END STUDENT CODE ////////////////////////////
