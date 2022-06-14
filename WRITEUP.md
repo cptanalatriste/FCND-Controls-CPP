@@ -112,7 +112,7 @@ $$\bar{p} = M_x/l$$
 $$\bar{q} = M_y/l$$
 $$\bar{r} = M_z/\kappa$$
 
-Here, $\bar{p}, \bar{q}, \bar{r}$ are the forces around each axis, $\kappa$ is the torque-to-thrust ratio
+Here, $\bar{p}, \bar{q}, \bar{r}$ are the forces around each axis. $$\kappa$$ is the torque-to-thrust ratio
 and $l = L \times \sqrt{2}$.
 
 Going back to the code, $\bar{c}$ is stored in the `desiredCollectiveThrust`
