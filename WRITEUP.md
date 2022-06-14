@@ -110,14 +110,12 @@ $$T_4 = \frac{\bar{c} - \bar{p} - \bar{q} - \bar{r}}{4} $$
 Where:
 $$\bar{p} = M_x/l$$
 $$\bar{q} = M_y/l$$
-$$\bar{q} = M_z/\kappa$$
+$$\bar{r} = M_z/\kappa$$
 
-And:
-$$l = L \times \sqrt{2} $$
+Here, $\bar{p}, \bar{q}, \bar{r}$ are the forces around each axis, $\kappa$ is the torque-to-thrust ratio
+and $l = L \times \sqrt{2}$.
 
-
-
-In the method implementation, $\bar{c}$ is stored in the `desiredCollectiveThrust`
+Going back to the code, $\bar{c}$ is stored in the `desiredCollectiveThrust`
 variable, $\bar{p}$ in the `forceAroundX` variable, $\bar{q}$ in the `forceAroundY`
 variable, and $\bar{r}$ in the variable `forceAroundZ`. The resulting thrusts
 are $T_1, T_2, T_3,T_4$ are stored in the variables `desiredThrustMotorOne, desiredThrustMotorTwo, desiredThrustMotorThree, desiredThrustMotorFour`.
