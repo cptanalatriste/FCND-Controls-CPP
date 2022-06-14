@@ -2,7 +2,10 @@
 
 ![img.png](img/controller_design.png)
 
-## Implemented body rate control  ##
+## Implemented Controller
+
+
+### Implemented body rate control  
 
 I completed the `QuadControl::BodyRateControl` method 
 to implement this functionality.
@@ -18,7 +21,7 @@ My implementation is based on the following expression:
 Here, u<sub>p</sub>, u<sub>q</sub>, and u<sub>r</sub> are 
 rotational accelerations along each axis.
 
-## Implement roll pitch control ##
+### Implement roll pitch control 
 
 I completed the `QuadControl::RollPitchControl` method
 to implement this functionality.
@@ -34,7 +37,7 @@ The variable `desiredRollRate` inside the method stores
 the calculated value of p<sub>c</sub>, and the `desiredPitchRate`
 stores the value of q<sub>c</sub>.
 
-## Implement altitude controller  ##
+### Implement altitude controller 
 
 I completed the `QuadControl::AltitudeControl` method
 to implement this functionality.
@@ -51,7 +54,7 @@ The variable `desiredAcceleration` inside the method stores
 the calculated value of first u<sub>l</sub> and later
 of c.
 
-## Implement lateral position control ##
+### Implement lateral position control 
 
 I completed the `QuadControl::LateralPositionControl` method
 to implement this functionality.
@@ -68,7 +71,7 @@ following expression:
 We use an analogous expression for the y direction.
 
 
-## Implement yaw control ## 
+### Implement yaw control 
 I completed the `QuadControl::YawControl` method
 to implement this functionality.
 Also, I configured a value for the yaw control gain parameter (`kpYaw`)
@@ -82,7 +85,7 @@ My implementation is based on the following expression:
 The variable `desiredYawRate` inside the method stores
 the calculated value of r<sub>c</sub>.
 
-## Calculating the motor commands ##
+### Calculating the motor commands
 
 I completed the `QuadControl::GenerateMotorCommands` method
 to implement this functionality.
@@ -97,4 +100,21 @@ And
 ![img.png](img/motor_commands_2.png)
 
 
+## Flight Evaluation
 
+
+### Scenario 1: Introduction  
+
+![img.png](img/scenario_1.png)
+
+### Scenario 2: Body rate and roll/pitch control  
+
+![img.png](img/scenario_2.png)
+
+### Scenario 3: Position/velocity and yaw angle control
+
+![img.png](img/scenario_3.png)
+
+### Scenario 4: Non-idealities and robustness   
+
+![img_1.png](img/scenario_4.png)
