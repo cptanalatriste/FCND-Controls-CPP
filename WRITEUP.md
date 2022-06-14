@@ -110,9 +110,9 @@ $$T_4 = \frac{\bar{c} - \bar{p} - \bar{q} - \bar{r}}{4} $$
 Where:
 $$\bar{p} = M_x/l$$
 $$\bar{q} = M_y/l$$
-$$\bar{r} = M_z/\kappa$$
+$$\bar{r} = M_z/K$$
 
-Here, $\bar{p}, \bar{q}, \bar{r}$ are the forces around each axis. $$\kappa$$ is the torque-to-thrust ratio
+Here, $\bar{p}, \bar{q}, \bar{r}$ are the forces around each axis, $K$ is the torque-to-thrust ratio
 and $l = L \times \sqrt{2}$.
 
 Going back to the code, $\bar{c}$ is stored in the `desiredCollectiveThrust`
